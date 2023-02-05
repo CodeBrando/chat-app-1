@@ -20,6 +20,8 @@ Swal.fire({
     socket.on('new-user', (data)=>{
         Swal.fire({
             title: 'New user logged in!',
+            background: 'url(/images/title-background.jpg)',
+            color: '#FFFFFF',
             text: `${data.user} has logged in.`,
             toast: true,
             position: 'top-right'
@@ -32,6 +34,9 @@ socket.on('history', (data)=>{
     data.forEach((item)=>{
         history.innerHTML += `<div class="${item.user == user ? 'myMessage' : ''}"><p><strong>${item.user}: </strong>${item.message}</p></div>`;
     });
+    setTimeout(()=>{
+        history.innerHTML = '';
+    }, 60000)
 })
 
 const chatBox = document.getElementById('chatBox');
@@ -50,4 +55,7 @@ chatBox.addEventListener('keyup', (e)=>{
 socket.on('message', (data)=>{
     let history = document.getElementById('history');
     history.innerHTML += `<div class="${data.user == user ? 'myMessage' : ''}"><p><strong>${data.user}: </strong>${data.message}</p></div>`
+    setTimeout(()=>{
+        history.innerHTML = '';
+    }, 60000)
 });

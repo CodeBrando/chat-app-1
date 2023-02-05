@@ -9,7 +9,7 @@ const httpServer = app.listen(8080, () => {
 });
 const io = new Server(httpServer);
 
-const messages = []
+let messages = []
 
 io.on('connection', (socket) =>{
     console.log('New user logged in!');
@@ -17,11 +17,19 @@ io.on('connection', (socket) =>{
         socket.broadcast.emit('new-user', data);
     });
     socket.emit('history', messages);
+    setTimeout(()=>{
+        messages = []
+    }, 60000)
     socket.on('message', (data)=>{
         messages.push(data);
+        setTimeout(()=>{
+            messages = []
+        }, 60000)
         io.emit('message', data);
+        
     });
 });
+
 
 app.engine('handlebars', handlebars.engine());
 app.set('views', __dirname + '/views');

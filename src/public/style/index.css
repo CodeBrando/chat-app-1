@@ -9,6 +9,7 @@ body{
     border-radius: 10px;
     padding: 10px;
     width: 98%;
+    position: sticky;
 }
 
 #history p{
@@ -23,6 +24,11 @@ body{
     flex: 1;
 }
 
+.title{
+    position: sticky;
+    top: 0px;
+}
+
 main{
     height: 98vh;
     display: flex;
@@ -31,8 +37,9 @@ main{
 
 .myMessage{
     display: flex;
-    justify-content: column;
+    justify-content: end;
 }
+
 
 h1{
     color: aliceblue;
@@ -42,6 +49,7 @@ h1{
     margin: 0 auto;
     font-family: 'Playfair Display', serif;
     font-size: 5vh;
+    padding: 5px;
 }
 
 .swal2-title {
