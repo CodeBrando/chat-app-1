@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Playfair+Display:ital@1&display=swap');
+
+
+body{
+    background-image: url("/images/background.jpg");
+}
+
+#chatBox{
+    border-radius: 10px;
+    padding: 10px;
+    width: 98%;
+}
+
+#history p{
+    background-color: burlywood;
+    padding: 5px;
+    border-radius: 5px;
+    width: fit-content;
+    font-family: 'Inter', sans-serif;
+}
+
+#chat{
+    flex: 1;
+}
+
+main{
+    height: 98vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.myMessage{
+    display: flex;
+    justify-content: column;
+}
+
+h1{
+    color: aliceblue;
+    background-image: url("/images/title-background.jpg");
+    width: fit-content;
+    text-align: center;
+    margin: 0 auto;
+    font-family: 'Playfair Display', serif;
+    font-size: 5vh;
+}
+
+.swal2-title {
+    font-family: 'Inter', sans-serif;
+}
