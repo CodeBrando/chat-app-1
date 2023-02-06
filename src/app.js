@@ -19,12 +19,12 @@ io.on('connection', (socket) =>{
     socket.emit('history', messages);
     setTimeout(()=>{
         messages = []
-    }, 60000)
+    }, 30000)
     socket.on('message', (data)=>{
         messages.push(data);
         setTimeout(()=>{
             messages = []
-        }, 60000)
+        }, 30000)
         io.emit('message', data);
         
     });

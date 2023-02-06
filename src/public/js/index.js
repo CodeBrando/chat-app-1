@@ -1,9 +1,13 @@
+
 const socket = io();
 let user;
 
+
 Swal.fire({
-    title: 'Tell us your name before you start chatting',
+    title: 'Welcome to ChatBomb, where messages explode after 30 seconds!',
+    text: 'Tell us your name',
     confirmButtonText: 'Accept',
+    confirmButtonColor: '#FE0000',
     input: 'text',
     allowOutsideClick: false,
     background: 'url(/images/title-background.jpg)',
@@ -36,7 +40,7 @@ socket.on('history', (data)=>{
     });
     setTimeout(()=>{
         history.innerHTML = '';
-    }, 60000)
+    }, 30000)
 })
 
 const chatBox = document.getElementById('chatBox');
@@ -57,5 +61,5 @@ socket.on('message', (data)=>{
     history.innerHTML += `<div class="${data.user == user ? 'myMessage' : ''}"><p><strong>${data.user}: </strong>${data.message}</p></div>`
     setTimeout(()=>{
         history.innerHTML = '';
-    }, 60000)
+    }, 30000)
 });
